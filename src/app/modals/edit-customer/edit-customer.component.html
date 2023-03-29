@@ -1,0 +1,75 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" (click)="onOutsideClick()">
+  <div class="flex flex-col justify-center items-center w-[320px] bg-white rounded-lg shadow-lg p-8" (click)="onInsideModalClick($event)">
+
+    <h2 class="text-2xl font-bold mb-8">{{ 'list.ADD_CUSTOMER' | translate }}</h2>
+
+    <form [formGroup]="customerDataForm" (ngSubmit)="onDoneEdit(customerDataForm)">
+
+      <div class="w-[200px] h-[80px] mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="fullName">
+          {{ 'customer.FULL_NAME' | translate }}
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          formControlName="fullName" id="fullName" type="text" placeholder="{{ 'customer.FULL_NAME' | translate }}">
+        <div
+          *ngIf="customerDataForm.get('fullName')?.invalid && (customerDataForm.get('fullName')?.dirty || customerDataForm.get('fullName')?.touched) || formSubmitted"
+          class="text-red-500 text-xs mt-2">
+          <span *ngIf="customerDataForm.get('fullName')?.hasError('required')">
+            {{ 'errors.FILL_OUT' | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="w-[200px] h-[80px] mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="age">
+          {{ 'customer.AGE' | translate }}
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full mb-2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          formControlName="age" id="age" placeholder="{{ 'customer.AGE' | translate }}" numbersOnly>
+        <div
+          *ngIf="customerDataForm.get('age')?.invalid && (customerDataForm.get('age')?.dirty || customerDataForm.get('age')?.touched) || formSubmitted"
+          class="text-red-600 text-xs mb-2">
+          <span *ngIf="customerDataForm.get('age')?.hasError('required')">
+            {{ 'errors.FILL_OUT' | translate }}
+          </span>
+          <span *ngIf="customerDataForm.get('age')?.hasError('min')">
+            {{ 'errors.AGE_RESTRICTION' | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="w-[200px] h-[80px] mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="phoneNumber">
+          {{ 'customer.PHONE_NUMBER' | translate }}
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          formControlName="phoneNumber" id="phoneNumber" placeholder="{{ 'customer.PHONE_NUMBER' | translate }}"
+          numbersOnly>
+        <div
+          *ngIf="customerDataForm.get('phoneNumber')?.invalid && (customerDataForm.get('phoneNumber')?.dirty || customerDataForm.get('phoneNumber')?.touched) || formSubmitted"
+          class="text-red-500 text-xs mt-2">
+          <span *ngIf="customerDataForm.get('phoneNumber')?.hasError('required')">
+            {{ 'errors.FILL_OUT' | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between mt-8">
+        <app-button
+          inputClass="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit">
+          {{ 'list.DONE' | translate }}
+        </app-button>
+        <app-button
+          inputClass="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button" (click)="onCancel()">
+          {{ 'list.CANCEL' | translate }}
+        </app-button>
+      </div>
+
+    </form>
+  </div>
+</div>

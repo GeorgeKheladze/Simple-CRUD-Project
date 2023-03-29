@@ -1,0 +1,62 @@
+<div class="relative w-full">
+
+  <div class="m-2">
+    <app-button inputClass="border w-[120px] bg-blue-600 hover:bg-blue-800 text-white py-2 px-4 rounded"
+      (click)="onAddCustomer()">
+      {{ 'list.ADD' | translate }}
+    </app-button>
+  </div>
+
+  <div class="overflow-x-scroll m-2 rounded">
+    <table class="min-w-full">
+
+      <thead class="border h-[60px] w-[800px]">
+        <tr>
+          <th class="border w-[80px] bg-gray-900 text-white text-sm py-2 px-4 rounded">{{ 'customer.ID' | translate }}
+          </th>
+          <th class="border w-[600px] bg-gray-600 text-white text-sm py-2 px-4 rounded">{{ 'customer.FULL_NAME' |
+            translate }}</th>
+          <th class="border w-[80px] bg-gray-500 text-white text-sm py-2 px-4 rounded">{{ 'customer.AGE' | translate }}
+          </th>
+          <th class="border w-[600px] bg-gray-400 text-white text-sm py-2 px-4 rounded">{{ 'customer.PHONE_NUMBER' |
+            translate }}</th>
+          <th class="border w-[400px] bg-red-400 text-white text-sm py-2 px-4 rounded">{{ 'ui.ACTION' | translate }}
+          </th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="customerList$ | async; else loadingSpinner" class="border h-full w-[800px] bg-gray-900">
+        <tr *ngFor="let customerList of customerList$ | async">
+          <td class="border w-[80px] bg-gray-300 text-gray-700 text-sm py-2 px-4 rounded">{{ customerList.id }}</td>
+          <td class="border w-[600px] bg-gray-300 text-gray-700 text-sm py-2 px-4 rounded"
+            [title]="customerList.fullName">{{ customerList.fullName | textReducer: 25 }}</td>
+          <td class="border w-[80px] bg-gray-300 text-gray-700 text-sm py-2 px-4 rounded" [title]="customerList.age">{{
+            customerList.age | textReducer: 25 }}</td>
+          <td class="border w-[600px] bg-gray-300 text-gray-700 text-sm py-2 px-4 rounded"
+            [title]="customerList.phoneNumber">{{ customerList.phoneNumber | textReducer: 25 }}</td>
+          <td class="border flex justify-between w-[400px] bg-gray-300 text-sm py-2 px-10">
+            <app-button inputClass="w-[120px] bg-red-500 hover:bg-red-700 text-white rounded"
+              (click)="onDeleteCustomer(customerList.id)">
+              {{ 'list.DELETE' | translate }}
+            </app-button>
+            <app-button inputClass="w-[120px] bg-green-600 hover:bg-green-700 text-white rounded"
+              (click)="onEditCustomer(customerList)">
+              {{ 'list.EDIT' | translate }}
+            </app-button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <app-add-customer *ngIf="showAddModal$ | async" [showAddModal$]="showAddModal$"></app-add-customer>
+  <app-delete-customer *ngIf="showDeleteModal$ | async" [showDeleteModal$]="showDeleteModal$"
+    [costumerId]="customerId"></app-delete-customer>
+  <app-edit-customer *ngIf="showEditModal$ | async" [showEditModal$]="showEditModal$"
+    [editableCustomerData]="editableCustomerData"></app-edit-customer>
+</div>
+
+<ng-template #loadingSpinner>
+  <app-loading></app-loading>
+</ng-template>

@@ -1,0 +1,16 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "fullName": "Sam Fisher",
+      "age": "56",
+      "phoneNumber": "000000000"
+    },
+    {
+      "id": 2,
+      "fullName": "John Wick",
+      "age": "48",
+      "phoneNumber": "111111111"
+    }
+  ]
+}

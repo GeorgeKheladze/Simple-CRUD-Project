@@ -1,0 +1,20 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" (click)="onOutsideClick()">
+  <div class="bg-white rounded-lg shadow-lg p-8" (click)="onInsideModalClick($event)">
+
+    <h2 class="text-2xl font-bold mb-8">{{ 'list.DELETE_CUSTOMER' | translate }}</h2>
+
+    <div class="flex items-center justify-between">
+      <app-button
+        inputClass="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="submit" (click)="onDeleteCustomer()">
+        {{ 'list.DELETE' | translate }}
+      </app-button>
+      <app-button
+        inputClass="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button" (click)="onCancel()">
+        {{ 'list.CANCEL' | translate }}
+      </app-button>
+    </div>
+
+  </div>
+</div>

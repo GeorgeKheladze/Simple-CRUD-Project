@@ -1,0 +1,26 @@
+{
+    "TITLE": "Simple Crude Project",
+    "customer": {
+      "ID": "ID",
+      "FULL_NAME": "Full Name",
+      "AGE": "Age",
+      "PHONE_NUMBER": "Phone Number"
+    },
+    "list": {
+      "ADD_CUSTOMER": "Add Customer",
+      "EDIT_CUSTOMER": "Edit Customer",
+      "DELETE_CUSTOMER": "Delete Customer",
+      "ADD": "Add",
+      "DONE": "Done",
+      "EDIT": "Edit",
+      "DELETE": "Delete",
+      "CANCEL": "Cancel"
+    },
+    "errors": {
+      "FILL_OUT": "Please fill out this field",
+      "AGE_RESTRICTION": "Age must more then 18 years old"
+    },
+    "ui": {
+      "ACTION": "Action"
+    }
+}
