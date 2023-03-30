@@ -11,7 +11,7 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          formControlName="fullName" id="fullName" type="text" placeholder="{{ 'customer.FULL_NAME' | translate}}">
+          formControlName="fullName" id="fullName" type="text" placeholder="{{ 'customer.FULL_NAME' | translate }}" lettersOnly>
         <div
           *ngIf="customerDataForm.get('fullName')?.invalid && (customerDataForm.get('fullName')?.dirty || customerDataForm.get('fullName')?.touched) || formSubmitted"
           class="text-red-500 text-xs mt-2">
@@ -27,7 +27,7 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full mb-2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          formControlName="age" id="age" placeholder="{{ 'customer.AGE' | translate }}" numbersOnly>
+          formControlName="age" id="age" placeholder="{{ 'customer.AGE' | translate }}" maxlength="3" numbersOnly>
         <div
           *ngIf="customerDataForm.get('age')?.invalid && (customerDataForm.get('age')?.dirty || customerDataForm.get('age')?.touched) || formSubmitted"
           class="text-red-500 text-xs mb-2">
@@ -46,13 +46,15 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          formControlName="phoneNumber" id="phoneNumber" placeholder="{{ 'customer.PHONE_NUMBER' | translate }}"
-          numbersOnly>
+          formControlName="phoneNumber" id="phoneNumber" placeholder="{{ 'customer.PHONE_NUMBER' | translate }}" numbersOnly maxlength="11">
         <div
           *ngIf="customerDataForm.get('phoneNumber')?.invalid && (customerDataForm.get('phoneNumber')?.dirty || customerDataForm.get('phoneNumber')?.touched) || formSubmitted"
           class="text-red-500 text-xs mt-2">
           <span *ngIf="customerDataForm.get('phoneNumber')?.hasError('required')">
             {{ 'errors.FILL_OUT' | translate }}
+          </span>
+          <span *ngIf="customerDataForm.get('phoneNumber')?.hasError('pattern')">
+            {{ 'errors.PHONE_NUMBER_RESTRICTION' | translate }}
           </span>
         </div>
       </div>

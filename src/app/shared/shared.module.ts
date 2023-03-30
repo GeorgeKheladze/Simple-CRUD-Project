@@ -5,6 +5,8 @@ import { LoadingSpinnerComponent } from './loading/loading-spinner/loading-spinn
 import { ButtonComponent } from './button/button.component';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { TextReducerPipe } from './pipe/text-reducer.pipe';
+import { PhoneNumberFormatterPipe } from './pipe/phone-number-formatter.pipe';
+import { LettersOnlyDirective } from './directives/letters-only.directive';
 
 
 
@@ -14,7 +16,9 @@ import { TextReducerPipe } from './pipe/text-reducer.pipe';
     LoadingSpinnerComponent,
     ButtonComponent,
     NumbersOnlyDirective,
-    TextReducerPipe
+    TextReducerPipe,
+    PhoneNumberFormatterPipe,
+    LettersOnlyDirective
   ],
   imports: [
     CommonModule
@@ -24,7 +28,9 @@ import { TextReducerPipe } from './pipe/text-reducer.pipe';
     LoadingSpinnerComponent,
     ButtonComponent,
     NumbersOnlyDirective,
-    TextReducerPipe
+    LettersOnlyDirective,
+    TextReducerPipe,
+    PhoneNumberFormatterPipe
   ]
 })
 export class SharedModule { }

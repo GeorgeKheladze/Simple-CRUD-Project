@@ -31,7 +31,7 @@ export class EditCustomerComponent implements OnInit, OnDestroy {
       id: new FormControl(this.editableCustomerData.id),
       fullName: new FormControl(this.editableCustomerData.fullName, { validators: [ Validators.required ], updateOn: 'blur' }),
       age: new FormControl(this.editableCustomerData.age, { validators: [ Validators.required, Validators.min(18) ], updateOn: 'blur' }),
-      phoneNumber: new FormControl(this.editableCustomerData?.phoneNumber, Validators.required )
+      phoneNumber: new FormControl(this.editableCustomerData?.phoneNumber, { validators:[ Validators.required, Validators.pattern(/^\d{3}\s?\d{3}\s?\d{3}$/) ] } )
     });
   }
 
@@ -59,6 +59,7 @@ export class EditCustomerComponent implements OnInit, OnDestroy {
 
   onCancel() {
     this.showEditModal$.next(false);
+    return false;
   }
 
   onOutsideClick() {

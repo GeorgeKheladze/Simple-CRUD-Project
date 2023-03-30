@@ -28,9 +28,9 @@ export class AddCustomerComponent implements OnInit, OnDestroy {
   createCustomerDataForm() {
     this.customerDataForm = new FormGroup({
       id: new FormControl(),
-      fullName: new FormControl('', { validators: [ Validators.required ], updateOn: 'blur' }),
+      fullName: new FormControl('', { validators: [ Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/) ], updateOn: 'blur' }),
       age: new FormControl('', { validators: [ Validators.required, Validators.min(18) ], updateOn: 'blur' }),
-      phoneNumber: new FormControl('', Validators.required )
+      phoneNumber: new FormControl('', { validators:[ Validators.required, Validators.pattern(/^\d{3}\s?\d{3}\s?\d{3}$/) ] } )
     });
   }
 
@@ -57,6 +57,7 @@ export class AddCustomerComponent implements OnInit, OnDestroy {
 
   onCancel() {
     this.showAddModal$.next(false);
+    return false;
   }
 
   onOutsideClick() {

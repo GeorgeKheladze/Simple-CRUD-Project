@@ -18,7 +18,8 @@
     },
     "errors": {
       "FILL_OUT": "Please fill out this field",
-      "AGE_RESTRICTION": "Age must more then 18 years old"
+      "AGE_RESTRICTION": "Age must more then 18 years old",
+      "PHONE_NUMBER_RESTRICTION": "Format (ex. 000 000 000)"
     },
     "ui": {
       "ACTION": "Action"

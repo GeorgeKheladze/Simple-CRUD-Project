@@ -27,13 +27,13 @@
 
       <tbody *ngIf="customerList$ | async; else loadingSpinner" class="border h-full w-[800px] bg-gray-900">
         <tr *ngFor="let customerList of customerList$ | async">
-          <td class="border w-[80px] bg-gray-300 text-gray-700 text-sm py-2 px-4 rounded">{{ customerList.id }}</td>
-          <td class="border w-[600px] bg-gray-300 text-gray-700 text-sm py-2 px-4 rounded"
+          <td class="border w-[80px] bg-gray-300 text-gray-700 text-sm text-center py-2 px-4 rounded">{{ customerList.id }}</td>
+          <td class="border w-[600px] bg-gray-300 text-gray-700 text-sm text-center py-2 px-4 rounded"
             [title]="customerList.fullName">{{ customerList.fullName | textReducer: 25 }}</td>
-          <td class="border w-[80px] bg-gray-300 text-gray-700 text-sm py-2 px-4 rounded" [title]="customerList.age">{{
-            customerList.age | textReducer: 25 }}</td>
-          <td class="border w-[600px] bg-gray-300 text-gray-700 text-sm py-2 px-4 rounded"
-            [title]="customerList.phoneNumber">{{ customerList.phoneNumber | textReducer: 25 }}</td>
+          <td class="border w-[80px] bg-gray-300 text-gray-700 text-sm text-center py-2 px-4 rounded" [title]="customerList.age">{{
+            customerList.age }}</td>
+          <td class="border w-[600px] bg-gray-300 text-gray-700 text-sm text-center py-2 px-4 rounded"
+            [title]="customerList.phoneNumber">{{ customerList.phoneNumber | phoneNumberFormatter }}</td>
           <td class="border flex justify-between w-[400px] bg-gray-300 text-sm py-2 px-10">
             <app-button inputClass="w-[120px] bg-red-500 hover:bg-red-700 text-white rounded"
               (click)="onDeleteCustomer(customerList.id)">
