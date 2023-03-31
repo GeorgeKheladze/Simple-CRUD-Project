@@ -14,7 +14,7 @@
           formControlName="fullName" id="fullName" type="text" placeholder="{{ 'customer.FULL_NAME' | translate }}" lettersOnly>
         <div
           *ngIf="customerDataForm.get('fullName')?.invalid && (customerDataForm.get('fullName')?.dirty || customerDataForm.get('fullName')?.touched) || formSubmitted"
-          class="text-red-500 text-xs mt-2">
+          class="animate-shake text-red-500 text-xs mt-2">
           <span *ngIf="customerDataForm.get('fullName')?.hasError('required')">
             {{ 'errors.FILL_OUT' | translate }}
           </span>
@@ -30,7 +30,7 @@
           formControlName="age" id="age" placeholder="{{ 'customer.AGE' | translate }}" maxlength="3" numbersOnly>
         <div
           *ngIf="customerDataForm.get('age')?.invalid && (customerDataForm.get('age')?.dirty || customerDataForm.get('age')?.touched) || formSubmitted"
-          class="text-red-600 text-xs mb-2">
+          class="animate-shake text-red-600 text-xs mb-2">
           <span *ngIf="customerDataForm.get('age')?.hasError('required')">
             {{ 'errors.FILL_OUT' | translate }}
           </span>
@@ -49,7 +49,7 @@
           formControlName="phoneNumber" id="phoneNumber" placeholder="{{ 'customer.PHONE_NUMBER' | translate }}" maxlength="11" numbersOnly>
         <div
           *ngIf="customerDataForm.get('phoneNumber')?.invalid && (customerDataForm.get('phoneNumber')?.dirty || customerDataForm.get('phoneNumber')?.touched) || formSubmitted"
-          class="text-red-500 text-xs mt-2">
+          class="animate-shake text-red-500 text-xs mt-2">
           <span *ngIf="customerDataForm.get('phoneNumber')?.hasError('required')">
             {{ 'errors.FILL_OUT' | translate }}
           </span>

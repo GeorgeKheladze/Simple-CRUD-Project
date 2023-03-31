@@ -12,5 +12,4 @@ export class NumbersOnlyDirective {
     inputValue = inputValue.replace(/(\d{3})(?=\d)/g, '$1 ');
     event.target.value = inputValue;
   }
-
 }

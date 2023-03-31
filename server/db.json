@@ -1,10 +1,16 @@
 {
   "customers": [
     {
-      "id": 5,
-      "fullName": "John Wick",
-      "age": "44",
-      "phoneNumber": "000 131 487"
+      "id": 2,
+      "fullName": "Sam Fisher",
+      "age": "48",
+      "phoneNumber": "111 222 333"
+    },
+    {
+      "id": 3,
+      "fullName": "dgsdgdsdfsdf",
+      "age": "32",
+      "phoneNumber": "242 424 242"
     }
   ]
 }
