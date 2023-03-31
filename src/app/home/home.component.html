@@ -1,45 +1,45 @@
 <div class="relative w-full">
 
   <div class="m-2">
-    <app-button inputClass="border w-[120px] bg-blue-600 hover:bg-blue-800 text-white py-2 px-4 rounded"
+    <app-button inputClass="border rounded w-[120px] shadow-md bg-blue-500 hover:bg-blue-600 text-white py-2 px-4"
       (click)="onAddCustomer()">
       {{ 'list.ADD' | translate }}
     </app-button>
   </div>
 
-  <div class="overflow-x-scroll m-2 rounded">
+  <div class="border rounded overflow-x-scroll m-2">
     <table class="min-w-full">
 
-      <thead class="border h-[60px] w-[800px]">
+      <thead class="h-[60px] w-[800px] border-b">
         <tr>
-          <th class="border w-[80px] bg-gray-900 text-white text-sm py-2 px-4 rounded">{{ 'customer.ID' | translate }}
+          <th class="border-r w-[80px] bg-gray-900 text-white text-sm py-2 px-4">{{ 'customer.ID' | translate }}
           </th>
-          <th class="border w-[600px] bg-gray-600 text-white text-sm py-2 px-4 rounded">{{ 'customer.FULL_NAME' |
+          <th class="border-r w-[600px] bg-gray-600 text-white text-sm py-2 px-4">{{ 'customer.FULL_NAME' |
             translate }}</th>
-          <th class="border w-[80px] bg-gray-500 text-white text-sm py-2 px-4 rounded">{{ 'customer.AGE' | translate }}
+          <th class="border-r w-[80px] bg-gray-500 text-white text-sm py-2 px-4">{{ 'customer.AGE' | translate }}
           </th>
-          <th class="border w-[600px] bg-gray-400 text-white text-sm py-2 px-4 rounded">{{ 'customer.PHONE_NUMBER' |
+          <th class="border-r w-[600px] bg-gray-400 text-white text-sm py-2 px-4">{{ 'customer.PHONE_NUMBER' |
             translate }}</th>
-          <th class="border w-[400px] bg-red-400 text-white text-sm py-2 px-4 rounded">{{ 'ui.ACTION' | translate }}
+          <th class="w-[400px] bg-red-400 text-white text-sm py-2 px-4">{{ 'ui.ACTION' | translate }}
           </th>
         </tr>
       </thead>
 
-      <tbody *ngIf="customerList$ | async; else loadingSpinner" class="border h-full w-[800px] bg-gray-900">
-        <tr *ngFor="let customerList of customerList$ | async">
-          <td class="border w-[80px] bg-gray-300 text-gray-700 text-sm text-center py-2 px-4 rounded">{{ customerList.id }}</td>
-          <td class="border w-[600px] bg-gray-300 text-gray-700 text-sm text-center py-2 px-4 rounded"
+      <tbody *ngIf="customerList$ | async as customerLists; else loadingSpinner" class="w-[800px]">
+        <tr *ngFor="let customerList of customerLists" class="border-t">
+          <td class="border-r w-[80px] bg-gray-300 text-gray-700 text-sm text-center py-2 px-4">{{ customerList.id }}</td>
+          <td class="border-r w-[600px] bg-gray-300 text-gray-700 text-sm text-center whitespace-nowrap py-2 px-4"
             [title]="customerList.fullName">{{ customerList.fullName | textReducer: 25 }}</td>
-          <td class="border w-[80px] bg-gray-300 text-gray-700 text-sm text-center py-2 px-4 rounded" [title]="customerList.age">{{
+          <td class="border-r w-[80px] overflow-x-auto bg-gray-300 text-gray-700 text-sm text-center py-2 px-4" [title]="customerList.age">{{
             customerList.age }}</td>
-          <td class="border w-[600px] bg-gray-300 text-gray-700 text-sm text-center py-2 px-4 rounded"
+          <td class="border-r w-[600px] bg-gray-300 text-gray-700 text-sm text-center whitespace-nowrap py-2 px-4"
             [title]="customerList.phoneNumber">{{ customerList.phoneNumber | phoneNumberFormatter }}</td>
-          <td class="border flex justify-between w-[400px] bg-gray-300 text-sm py-2 px-10">
-            <app-button inputClass="w-[120px] bg-red-500 hover:bg-red-700 text-white rounded"
+          <td class="flex justify-between w-[400px] bg-gray-300 text-sm py-2 px-10">
+            <app-button class="rounded" inputClass="rounded w-[120px] shadow-md bg-red-400 hover:bg-red-500 text-white"
               (click)="onDeleteCustomer(customerList.id)">
               {{ 'list.DELETE' | translate }}
             </app-button>
-            <app-button inputClass="w-[120px] bg-green-600 hover:bg-green-700 text-white rounded"
+            <app-button class="rounded" inputClass="rounded w-[120px] shadow-md bg-green-500 hover:bg-green-600 text-white"
               (click)="onEditCustomer(customerList)">
               {{ 'list.EDIT' | translate }}
             </app-button>
