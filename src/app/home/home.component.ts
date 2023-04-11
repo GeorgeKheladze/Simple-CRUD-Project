@@ -12,7 +12,7 @@ import { Customer } from '../models/customer.model';
 export class HomeComponent implements OnInit {
   customerId!: number;
   editableCustomerData!: Customer;
-  customerList$!: Observable<any>;
+  customerList$!: Observable<Customer[]>;
 
   showAddModal$ = new Subject<boolean>();
   showDeleteModal$ = new Subject<boolean>();

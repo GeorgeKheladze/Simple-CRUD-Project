@@ -57,7 +57,7 @@ export class AddCustomerComponent implements OnInit, OnDestroy {
 
   onCancel() {
     this.showAddModal$.next(false);
-    return false;
+    // return false;
   }
 
   onOutsideClick() {
