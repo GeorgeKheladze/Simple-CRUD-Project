@@ -1,27 +1,28 @@
 {
-  "TITLE": "Simple Crude Project",
+  "TITLE": "მარტივი CRUDE პროექტი",
   "customer": {
     "ID": "ID",
-    "FULL_NAME": "Full Name",
-    "AGE": "Age",
-    "PHONE_NUMBER": "Phone Number"
+    "FULL_NAME": "სახელი გვარი",
+    "AGE": "წლოვანება",
+    "PHONE_NUMBER": "ტელეფონის ნომერი"
   },
   "list": {
-    "ADD_CUSTOMER": "Add Customer",
-    "EDIT_CUSTOMER": "Edit Customer",
-    "DELETE_CUSTOMER": "Delete Customer",
-    "ADD": "Add",
-    "DONE": "Done",
-    "EDIT": "Edit",
-    "DELETE": "Delete",
-    "CANCEL": "Cancel"
+    "ADD_CUSTOMER": "მომხმარებლის დამატება",
+    "EDIT_CUSTOMER": "მომხმარებლის რედაქტირება",
+    "DELETE_CUSTOMER": "მომხმარებლის წაშლა",
+    "ADD": "დამატება",
+    "DONE": "დასრულება",
+    "EDIT": "რედაქტირება",
+    "DELETE": "წაშლა",
+    "CANCEL": "გაუქმება"
   },
   "errors": {
-    "FILL_OUT": "Please fill out this field",
-    "AGE_RESTRICTION": "Age must more then 18 years old",
-    "PHONE_NUMBER_RESTRICTION": "Format (ex. 000 000 000)"
+    "FILL_OUT": "გთხოვთ შეავსოთ ცარიელი ველი",
+    "AGE_RESTRICTION": "მომხმარებელი სავალდებულოა იყოს 18 წლის ან მეტის",
+    "PHONE_NUMBER_RESTRICTION": "ფორმატი (მაგ. 000 000 000)"
   },
   "ui": {
-    "ACTION": "Action"
-  }
+    "ACTION": "მოქმედება"
+  },
+  "LANGUAGE": "KA"
 }

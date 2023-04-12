@@ -59,7 +59,6 @@ export class EditCustomerComponent implements OnInit, OnDestroy {
 
   onCancel() {
     this.showEditModal$.next(false);
-    return false;
   }
 
   onOutsideClick() {

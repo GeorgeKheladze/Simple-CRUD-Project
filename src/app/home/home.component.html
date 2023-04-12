@@ -1,10 +1,21 @@
 <div class="relative w-full">
 
-  <div class="m-2">
-    <app-button inputClass="border rounded w-[120px] shadow-md bg-blue-500 hover:bg-blue-600 text-white py-2 px-4"
-      (click)="onAddCustomer()">
-      {{ 'list.ADD' | translate }}
-    </app-button>
+  <div class="flex justify-between">
+
+    <div class="m-2">
+      <app-button inputClass="border rounded w-[120px] shadow-md bg-blue-500 hover:bg-blue-600 text-white py-2 px-4"
+        (click)="onAddCustomer()">
+        {{ 'list.ADD' | translate }}
+      </app-button>
+    </div>
+
+    <div class="m-2">
+      <app-button inputClass="border rounded w-[60px] shadow-md bg-gray-600 hover:bg-gray-800 text-white py-2 px-4"
+        (click)="onChangeLang()">
+        {{ 'LANGUAGE' | translate }}
+      </app-button>
+    </div>
+
   </div>
 
   <div class="border rounded overflow-x-scroll m-2">
@@ -39,7 +50,7 @@
               (click)="onDeleteCustomer(customerList.id)">
               {{ 'list.DELETE' | translate }}
             </app-button>
-            <app-button class="rounded" inputClass="rounded w-[120px] shadow-md bg-green-500 hover:bg-green-600 text-white"
+            <app-button class="rounded" inputClass="rounded w-[140px] shadow-md bg-green-500 hover:bg-green-600 text-white"
               (click)="onEditCustomer(customerList)">
               {{ 'list.EDIT' | translate }}
             </app-button>

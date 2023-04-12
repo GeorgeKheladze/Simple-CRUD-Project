@@ -13,7 +13,8 @@ module.exports = {
         lightgray: '#B3B3B3',
         mediumgray: '#C7C7CC',
         darkgray: '#333333',
-        spacegray: '#2F2F2F'
+        spacegray: '#2F2F2F',
+        yellow: '#FFD982'
       },
       screens: {
         xs: '320px',
